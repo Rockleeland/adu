@@ -6,7 +6,7 @@ folder build
 
 @http
 get /api
-post /adu
+post /form
 
 @tables
 data
