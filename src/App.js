@@ -19,7 +19,17 @@ const App = () => {
   });
 
   const submit = async data => {
-    await fetch("/adu");
+    await fetch("/adu", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        firstParam: "yourValue",
+        secondParam: "yourOtherValue"
+      })
+    });
   };
   return (
     <div className="App">
