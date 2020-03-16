@@ -18,7 +18,7 @@ const App = () => {
     fetchData();
   });
 
-  const submit = async data => {
+  const submit = async () => {
     await fetch("/form", {
       method: "POST",
       headers: {

@@ -1,21 +1,14 @@
 let data = require("@begin/data");
 
 exports.handler = async function http(request) {
-  let headers = { "Content-Type": "application/json; charset=utf8" };
-  if (!request.body.note) {
-    return {
-      statusCode: 204,
-      headers,
-      body: JSON.stringify({ ok: false })
-    };
-  } else {
-    let table = "notes";
-    let note = request.body.note;
-    await data.set({ table, note });
-    return {
-      status: 201,
-      headers,
-      body: JSON.stringify({ ok: true })
-    };
-  }
+  let result = await data.set({
+    table: "cats",
+    cat: request.body
+  });
+  return {
+    status: 201,
+    type: "application/json",
+    location: `/api/cats/${result.key}`,
+    body: JSON.stringify(result.cat)
+  };
 };
