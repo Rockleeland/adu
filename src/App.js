@@ -19,7 +19,7 @@ const App = () => {
   });
 
   const submit = async data => {
-    await fetch("/adu", {
+    await fetch("/form", {
       method: "POST",
       headers: {
         Accept: "application/json",
